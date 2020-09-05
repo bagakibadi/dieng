@@ -16,6 +16,30 @@
             <h1>Computing on the Edge with Kubernetes</h1>
             <p>Wed, Oct 21, 2020 at 7:00 PM to Thu, Oct 22, 2020 4:00 AM ()</p>
           </div>
+          <div class="linest">
+            <div class="stone">
+              <div class="line active"></div>
+              <div class="noone line1">
+                <!-- <p>1</p> -->
+                <i class="fa fa-check"></i>
+              </div>
+              <p>Select Ticket</p>
+            </div>
+            <div class="stone">
+              <div class="line"></div>
+              <div class="noone">
+                <p>2</p>
+              </div>
+              <p>Select Ticket</p>
+            </div>
+            <div class="stone">
+              <div class="line"></div>
+              <div class="noone">
+                <p>3</p>
+              </div>
+              <p>Select Ticket</p>
+            </div>
+          </div>
           <div class="box">
             <div class="head">
               <h1>Ticket Buyer</h1>
@@ -35,6 +59,9 @@
                       <p>Email Should use @</p>
                     </div>
                   </div>
+                  <div class="but">
+                    <button class="btn btn-primary pr-5 pl-5 pt-2 pb-2">Masuk</button>
+                  </div>
                 </form>
                 <div class="regist">
                   <h1>Belum punya Akun?</h1>
@@ -47,7 +74,7 @@
                 <form action="">
                   <div class="forminput first">
                     <input type="text" placeholder="First Name*">
-                    <input type="text" placeholder="First Name*">
+                    <input type="text" placeholder="Last Name*">
                   </div>
                   <div class="forminput">
                     <input type="email" placeholder="Email*">
@@ -60,6 +87,9 @@
                     <div class="msgerror">
                       <p>Email Should use @</p>
                     </div>
+                  </div>
+                  <div class="but">
+                    <button class="btn btn-primary pr-5 pl-5 pt-2 pb-2">Daftar</button>
                   </div>
                 </form>
                 <div class="regist">
@@ -113,6 +143,9 @@ export default {
   data() {
     return {
       code: 1,
+      ticket1: true,
+      ticket2: false,
+      ticket3: false,
     };
   },
   methods: {
@@ -151,6 +184,7 @@ export default {
       // background: #f1f2f6;
       display: flex;
       .right{
+        overflow-y: auto;
         width: 70%;
         height: 100%;
         background: #f1f2f6;
@@ -169,6 +203,53 @@ export default {
           }
           p{
             font-size: 14px;
+          }
+        }
+        .linest{
+          display: flex;
+          width: 80%;
+          .stone{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            width: calc(100%/3);
+            .line{
+              position: relative;
+              height: 2px;
+              width: 100%;
+              background: black;
+              top: 17px;
+            }
+            .active{
+              background: skyblue !important;
+            }
+            .line1{
+              border: 1px solid skyblue !important;
+            }
+            .noone{
+              position: relative;
+              cursor: pointer;
+              width: 35px;
+              height: 35px;
+              border-radius: 100%;
+              background: whitesmoke;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px solid #999;
+              margin-bottom: 10px;
+              p{
+                color: #444;
+                margin-bottom: 0;
+              }
+              i{
+                color: skyblue;
+              }
+            }
+            p{
+              cursor: pointer;
+            }
           }
         }
         .box{

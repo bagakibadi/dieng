@@ -11,9 +11,12 @@
     <!--  -->
     <div class="invoice">
       <h1>FRESCOllaboration Show (Brisia Jodie x Alif Rizky)</h1>
-      <router-link to="/checkout">
-        <button class="btn btn-primary">BELI TIKET</button>
-      </router-link>
+      <div class="goti">
+        <h2>Rp. {{price*totalbuy}}</h2>
+        <router-link to="/checkout">
+          <button class="btn btn-primary">BELI TIKET</button>
+        </router-link>
+      </div>
     </div>
     <div class="ticket">
       <div class="imgticket">
@@ -86,7 +89,7 @@
                 <a href="#">Berakhir tanggal 05 September 2020 | 10:00</a>
               </div>
               <div class="pricer">
-                <h1>GRATIS</h1>
+                <h1>Rp. {{price}}</h1>
               </div>
               <div class="buttons">
                 <button @click="buy" class="btn btn-primary">BELI</button>
@@ -111,7 +114,8 @@ export default {
       code: 1,
       test: 2,
       totalbuy: 0,
-      totalbuys: 0,
+      price: 300000,
+      totalprice: 0,
     };
   },
   methods: {
@@ -181,9 +185,20 @@ export default {
         color: #686868;
         margin-left: 200px;
       }
-      .btn{
-        padding: 10px 25px;
-        margin-right: 30px;
+      .goti{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h2{
+          margin-bottom: 0;
+          margin-right: 10px;
+          font-size: 22px;
+          color: #686868;
+        }
+        .btn{
+          padding: 10px 25px;
+          margin-right: 30px;
+        }
       }
     }
     .ticket{
@@ -361,6 +376,7 @@ export default {
               margin: 0 15px;
               h1{
                 margin: 0;
+                font-size: 18px;
               }
             }
             .buttons{
@@ -379,8 +395,8 @@ export default {
                 margin: 0 10px;
               }
               .btn{
-                padding: 5px 15px;
-                border-radius: 10px;
+                padding: 0px 10px;
+                border-radius: 5px;
                 font-weight: bolder;
                 font-size: 18px;
               }
