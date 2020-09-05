@@ -9,11 +9,6 @@
       <div class="infoacc"></div>
     </div>
     <!--  -->
-    <!-- <div class="hashtags">
-      <h1>#Event Online</h1>
-      <h1>#Blog</h1>
-      <h1>#LoketBliblicom</h1>
-    </div> -->
     <!--Carousel Wrapper-->
     <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
       <!--Indicators-->
@@ -144,14 +139,6 @@ export default {
   .logos img{
     width: 150px;
     margin-left: 30px;
-  }
-  .hashtags{
-    display: flex;
-  }
-  .hashtags h1{
-    padding: 10px 0;
-    margin-left: 20px;
-    font-size: 20px;
   }
   .contents{
     display: flex;

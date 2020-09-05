@@ -11,7 +11,9 @@
     <!--  -->
     <div class="invoice">
       <h1>FRESCOllaboration Show (Brisia Jodie x Alif Rizky)</h1>
-      <button class="btn btn-primary">BELI TIKET</button>
+      <router-link to="/checkout">
+        <button class="btn btn-primary">BELI TIKET</button>
+      </router-link>
     </div>
     <div class="ticket">
       <div class="imgticket">
@@ -65,35 +67,8 @@
                  sampai ketinggalan penampilan dari mereka.</p>
         </div>
       </div>
-      <!-- <div class="categori" v-if="code === 2">
-        <article class="card fl-left">
-          <section class="date">
-            <time datetime="23th feb">
-              <span>23</span><span>feb</span>
-            </time>
-          </section>
-          <section class="card-cont">
-            <small>dj khaled</small>
-            <h3>live in sydney</h3>
-            <div class="even-date">
-            <i class="fa fa-calendar"></i>
-            <time>
-              <span>wednesday 28 december 2014</span>
-              <span>08:55pm to 12:00 am</span>
-            </time>
-            </div>
-            <div class="even-info">
-              <i class="fa fa-map-marker"></i>
-              <p>
-                nexen square for people australia, sydney
-              </p>
-            </div>
-            <a href="#">tickets</a>
-          </section>
-        </article>
-      </div> -->
       <div class="categori" v-if="code === 2">
-        <div class="all">
+        <div class="all" v-for="i in 3" :key="i.id">
           <div class="lefts">
             <span></span>
             <h1>28 Aug</h1>
@@ -113,7 +88,14 @@
               <div class="pricer">
                 <h1>GRATIS</h1>
               </div>
-              <div class="btn btn-primary buy">BELI</div>
+              <div class="buttons">
+                <button @click="buy" class="btn btn-primary">BELI</button>
+              </div>
+              <div class="button">
+                <div class="btn btn-primary" @click="kurang">-</div>
+                <p>{{totalbuy}}</p>
+                <div class="btn btn-primary" @click="tambah">+</div>
+              </div>
             </div>
           </div>
         </div>
@@ -128,9 +110,19 @@ export default {
     return {
       code: 1,
       test: 2,
+      totalbuy: 1,
     };
   },
   methods: {
+    tambah() {
+      this.totalbuy = 1;
+      // console.log(this.totalbuy );
+      // console.log(this.totalbuy);
+    },
+    buy() {
+      document.querySelector('.button').style.display = 'flex';
+      document.querySelector('.buttons').style.display = 'none';
+    },
     cate() {
       document.querySelector('.desk').classList.remove('borbot');
       document.querySelector('.cate').classList.add('borbot');
@@ -291,6 +283,7 @@ export default {
           border: 1px solid #dadde6;
           border-radius: 7px;
           display: flex;
+          margin: 10px 0;
           .lefts{
             width: 24%;
             border-right: 2px dashed #dadde6;
@@ -357,6 +350,31 @@ export default {
             .pricer{
               align-self: center;
               margin: 0 15px;
+              h1{
+                margin: 0;
+              }
+            }
+            .buttons{
+              display: flex;
+              align-items: center;
+              button{
+                padding: 5px 30px;
+                border-radius: 10px;
+              }
+            }
+            .button{
+              display: none;
+              align-items: center;
+              justify-content: center;
+              p{
+                margin: 0 10px;
+              }
+              .btn{
+                padding: 5px 15px;
+                border-radius: 10px;
+                font-weight: bolder;
+                font-size: 18px;
+              }
             }
             .buy{
               align-self: center;
@@ -369,9 +387,9 @@ export default {
   }
   .btn{
     border-radius: 20px;
-    background: transparent;
-    color: black;
-    border: 1px solid black;
+    // background: transparent;
+    // color: black;
+    // border: 1px solid black;
   }
 // asdasd
   .fl-left{float: left}
