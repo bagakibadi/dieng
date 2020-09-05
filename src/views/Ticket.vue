@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="categori" v-if="code === 2">
-        <div class="all" v-for="i in 3" :key="i.id">
+        <div class="all" >
           <div class="lefts">
             <span></span>
             <h1>28 Aug</h1>
@@ -110,16 +110,25 @@ export default {
     return {
       code: 1,
       test: 2,
-      totalbuy: 1,
+      totalbuy: 0,
+      totalbuys: 0,
     };
   },
   methods: {
+    kurang() {
+      if (this.totalbuy <= 1) {
+        this.totalbuy = 0;
+        document.querySelector('.buttons').style.display = 'flex';
+        document.querySelector('.button').style.display = 'none';
+      } else {
+        this.totalbuy -= 1;
+      }
+    },
     tambah() {
-      this.totalbuy = 1;
-      // console.log(this.totalbuy );
-      // console.log(this.totalbuy);
+      this.totalbuy += 1;
     },
     buy() {
+      this.totalbuy += 1;
       document.querySelector('.button').style.display = 'flex';
       document.querySelector('.buttons').style.display = 'none';
     },
